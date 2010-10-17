@@ -10,3 +10,6 @@
 [submodule "bundle/dirdiff"]
 	path = bundle/dirdiff
 	url = http://github.com/vim-scripts/DirDiff.vim.git
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = http://github.com/tpope/vim-markdown.git
