@@ -6,7 +6,6 @@ Installation:
 Create symlinks:
 
     ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/gvimrc ~/.gvimrc
 
 Switch to the `~/.vim` directory, and fetch submodules:
 
@@ -17,3 +16,5 @@ Switch to the `~/.vim` directory, and fetch submodules:
 Inspired by [nelstrom](http://github.com/nelstrom)'s vimcast, episode #27:
 
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+
+
