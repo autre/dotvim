@@ -1,4 +1,6 @@
 
+filetype off
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -7,16 +9,14 @@ call pathogen#helptags()
 """
 
 set nocompatible
-syntax on
-filetype on
-filetype plugin on
 filetype plugin indent on
+syntax on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
 set history=1000
 set title
-set runtimepath+=~/.vim/plugin
+"set runtimepath+=~/.vim/plugin
 set dir=/tmp
 set backup
 execute "set backupdir=" . "$HOME/.bak"
@@ -74,7 +74,7 @@ set list listchars=tab:\ \ ,trail:·
 "set textwidth=80
 set scrolloff=2 " Minimum lines between cursor and window edge
 set laststatus=2
-set statusline=\ (%n)\ %t\ %M\ [hg:\ %{HGRev()}]\ %=%([%l,\%c]%)\ %p%%
+"set statusline=\ (%n)\ %t\ %M\ [hg:\ %{HGRev()}]\ %=%([%l,\%c]%)\ %p%%
 hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
 
 " reformat file
@@ -239,6 +239,11 @@ let twitvim_enable_python = 1
 
 au FocusLost * :wa " save file when losing focus
 
+let vimclojure#NailgunClient = "/usr/local/bin/ng"
+let vimclojure#WantNailgun = 1
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#ParenRainbow = 1
+
 """
 " language specific
 """
@@ -282,9 +287,6 @@ augroup END
 augroup CLOJURE
   au BufRead,BufNewFile *.clj  setl filetype=clojure sw=2 ts=2 sts=2 ai sta et
   au Filetype clojure          map <f2> \ef
-  au Filetype clojure          call rainbow_parenthsis#Toggle()
-  au Filetype clojure          let vimclojure#NailginClient="/usr/local/bin/ng"
-  au Filetype clojure	       let clj_want_gorilla=1
 augroup END
 
 augroup SCHEME
