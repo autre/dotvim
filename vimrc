@@ -178,39 +178,6 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-" When hitting <;>, complete a snippet if there is one; else, insert an actual
-" <;>
-function! InsertSnippetWrapper()
-    let inserted = TriggerSnippet()
-    if inserted == "\<tab>"
-        return ";"
-    else
-        return inserted
-    endif
-endfunction
-inoremap ; <c-r>=InsertSnippetWrapper()<cr>
-
-fun! RunTests(target, args)
-    silent ! echo
-    exec 'silent ! echo -e "\033[1;36mRunning tests in ' . a:target . '\033[0m"'
-    silent w
-    exec "make " . a:target . " " . a:args
-endfunction
-
-function! RedBar()
-    hi RedBar ctermfg=white ctermbg=red guibg=red
-    echohl RedBar
-    echon repeat(" ",&columns - 1)
-    echohl
-endfunction
-
-function! GreenBar()
-    hi GreenBar ctermfg=white ctermbg=green guibg=green
-    echohl GreenBar
-    echon repeat(" ",&columns - 1)
-    echohl
-endfunction
-
 """
 " plugin support
 """
@@ -248,6 +215,7 @@ let vimclojure#ParenRainbow = 1
 " language specific
 """
 
+
 " ts = tabstop
 " sw = shiftwidth
 " sts = softtabstop
@@ -269,34 +237,33 @@ augroup PYTHON
   au BufRead,BufNewFile *.py  setl filetype=python sw=4 ts=4 sts=4 ai sta et
   au BufRead,BufNewFile *.py  setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
   au Filetype python          setl omnifunc=pythoncomplete#Complete
-  au Filetype python          call rainbow_parenthsis#Toggle()
 augroup END
 
 augroup JAVASCRIPT
   au BufRead,BufNewFile *.js,*.json  setl filetype=javascript sw=4 ts=4 sts=4 ai sta et
   au Filetype javascript             nmap <F5> :call JSExec()<cr>
   au FileType javascript             setl errorformat=js:\ "%f",\ line\ %l:\ %m
-  au Filetype javascript             call rainbow_parenthsis#Toggle()
+  au FileType javascript             :ToggleRaibowParenthesis
 augroup END
 
 augroup COFFEE
   au BufRead,BufNewFile *.coffee  setl filetype=coffeescript sw=4 ts=4 sts=4 ai sta et
-  au Filetype coffeescript        call rainbow_parenthsis#Toggle()
+  au FileType coffeescript        :ToggleRaibowParenthesis
 augroup END
 
 augroup CLOJURE
-  au BufRead,BufNewFile *.clj  setl filetype=clojure sw=2 ts=2 sts=2 ai sta et
+  au BufRead,BufNewFile *.clj  setl sw=2 ts=2 sts=2 ai sta et
   au Filetype clojure          map <f2> \ef
+  au FileType clojure         :ToggleRaibowParenthesis
 augroup END
 
 augroup SCHEME
   au BufRead,BufNewFile *.scm  setl filetype=scheme ts=2 sw=2 ai sta et
-  au Filetype scheme           call rainbow_parenthsis#Toggle()
+  au FileType clojure         :ToggleRaibowParenthesis
 augroup END
 
 augroup HASKELL
   au BufRead,BufNewFile *.hs   setl filetype=haskell ts=2 sw=2 ai sta et
-  au Filetype haskell          call rainbow_parenthsis#Toggle()
 augroup END
 
 augroup JAVA
