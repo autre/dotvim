@@ -1,16 +1,15 @@
 
-filetype off
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 """
 " general settings
 """
 
 set nocompatible
-filetype plugin indent on
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+filetype off
 syntax on
+filetype plugin indent on
+
 set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
