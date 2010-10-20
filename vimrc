@@ -37,8 +37,11 @@ autocmd! Bufwritepost $MYVIMRC source $MYVIMRC
 
 if has('gui_running')
   set t_Co=256
-  "set guifont=Droid\ Sans\ Mono\ Slashed:h16
-  set guifont=Monaco:h16
+  if system('uname') ==? "linux" " FIXME: wtf?
+    set guifont=Monaco:h16
+  else
+    set guifont=Droid\ Sans\ Mono\ Slashed\ 14
+  endif
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
