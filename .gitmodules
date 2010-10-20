@@ -16,3 +16,6 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = http://github.com/vim-scripts/Command-T.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = http://github.com/vim-scripts/matchit.zip.git
