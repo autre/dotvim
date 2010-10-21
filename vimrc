@@ -30,7 +30,8 @@ if has('gui_running')
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-  colorscheme desert
+  "colorscheme desert
+  colorscheme ir_black
 else
   colorscheme elflord
 endif
