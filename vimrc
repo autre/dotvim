@@ -37,8 +37,8 @@ autocmd! Bufwritepost $MYVIMRC source $MYVIMRC
 
 if has('gui_running')
   set t_Co=256
-  if system('uname') ==? "linux" " FIXME: wtf?
-    set guifont=Monaco:h16
+  if has("gui_mac") || has("gui_macvim")
+    set guifont=Monaco:h14
   else
     set guifont=Droid\ Sans\ Mono\ Slashed\ 14
   endif
