@@ -18,6 +18,8 @@ call pathogen#helptags()
 " }}}
 
 " Gui fonts & colors {{{1
+set background=dark
+
 if has('gui_running')
   set t_Co=256
 
@@ -176,7 +178,7 @@ nmap <silent> ,t :CommandT<cr>
 
 " Language specific {{{
 au FileType c setl softtabstop=8 shiftwidth=8 noet
-au FileType python setl :ToggleRaibowParenthesis
+au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
 au FileType coffeescript :ToggleRaibowParenthesis
