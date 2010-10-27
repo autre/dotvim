@@ -126,8 +126,6 @@ map <Leader>v "+gP
 map j gj
 map k gk
 map <S-Down> <Down>
-map <S-j> j
-map <S-k> k
 
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -195,6 +193,7 @@ nmap <silent> ,t :CommandT<cr>
 
 " Language specific {{{
 au FileType c setl softtabstop=8 shiftwidth=8 noet
+au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python setl :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
