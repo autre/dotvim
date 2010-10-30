@@ -204,6 +204,10 @@ au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
 au FileType clojure :ToggleRaibowParenthesis
 au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
 au FileType scheme :ToggleRaibowParenthesis
+au FileType java setl makeprg=ant\ -emacs\ -find
+au FileType java map! <m-f5> :make<cr>
+au FileType java map! \n :cn<cr>
+au FileType java map! \p :cp<cr>
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType xml setl softtabstop=2 shiftwidth=2
 " }}}
