@@ -46,19 +46,20 @@ syn match   javaScriptSpecialCharacter "'\\.'"
 syn match   javaScriptNumber	       "-\=\<\d\+L\=\>\|0[xX][0-9a-fA-F]\+\>"
 syn region  javaScriptRegexpString     start=+/[^/*]+me=e-1 skip=+\\\\\|\\/+ end=+/[gi]\{0,2\}\s*$+ end=+/[gi]\{0,2\}\s*[;.,)\]}]+me=e-1 contains=@htmlPreproc oneline
 
+" TODO: Fix this to better reflect the javascript object model
 syn keyword javaScriptConditional	if else switch
 syn keyword javaScriptRepeat		while for do in var let
 syn keyword javaScriptBranch		break continue
 syn keyword javaScriptOperator		new delete instanceof typeof prototype
-syn keyword javaScriptType		Array Boolean Date Function Number Object String RegExp
+syn keyword javaScriptType		Array Boolean Date Function Number Object String RegExp prototype constructor create defineProperty defineProperties getOwnPropertyDescriptor keys getOwnPropertyNames getPrototypeOf preventExtensions isExtensible seal isSealed freeze isFrozen isPrototypeOf __noSuchMethod__ propertyIsEnumerable
 syn keyword javaScriptStatement		return with
 syn keyword javaScriptBoolean		true false
 syn keyword javaScriptNull		null undefined
 syn keyword javaScriptIdentifier	arguments this
 syn keyword javaScriptLabel		case default
 syn keyword javaScriptException		try catch finally throw
-syn keyword javaScriptDeprecated	escape unescape
-syn keyword javaScriptReserved		abstract boolean byte char class const debugger double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized throws transient void volatile 
+syn keyword javaScriptDeprecated	escape unescape __proto__
+syn keyword javaScriptReserved		abstract boolean byte char class const debugger double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized throws transient void volatile
 
 if exists("javaScript_fold")
     syn match	javaScriptFunction      "\<function\>"
@@ -105,7 +106,7 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   HiLink javaScriptConditional		Conditional
   HiLink javaScriptRepeat		Repeat
   HiLink javaScriptBranch		Conditional
-  HiLink javaScriptOperator		Operator
+  HiLink javaScriptOperator		Keyword
   HiLink javaScriptType			Type
   HiLink javaScriptStatement		Statement
   HiLink javaScriptFunction		Function
