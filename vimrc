@@ -165,6 +165,13 @@ endf
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap } <c-r>=ClosePair('}')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
+
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "}}}
 
 " Highlighting, syntax, indentation {{{
@@ -185,12 +192,17 @@ let NERDTreeWinSize = 20
 let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
 let NERDTreeWinPos = "right"
 
+let g:CommandTMaxHeight=20
+
+" vimclojure repl mappings
 map <silent> <f2> <leader>et
 imap <silent> <f2> <leader>et
 map <silent> <f3> <leader>ef
 imap <silent> <f3> <leader>ef
-map <silent> <f5> <esc>:NERDTree<cr>
+
+map <Leader>n :NERDTreeToggle<CR>
 nmap <silent> ,t :CommandT<cr>
+
 " }}}
 
 " Language specific {{{
