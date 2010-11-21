@@ -22,3 +22,6 @@
 [submodule "bundle/conque-shell"]
 	path = bundle/conque-shell
 	url = git://github.com/vim-scripts/Conque-Shell.git
+[submodule "bundle/stl-ref"]
+	path = bundle/stl-ref
+	url = git://github.com/vim-scripts/stlrefvim.git
