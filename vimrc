@@ -172,6 +172,9 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
 "map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 "}}}
 
 " Highlighting, syntax, indentation {{{
@@ -194,6 +197,12 @@ let NERDTreeWinPos = "right"
 
 let g:CommandTMaxHeight=20
 
+let g:Tlist_Compact_Format=1
+let g:Tlist_Highlight_Tag_On_BufEnter=1
+let g:Tlist_Show_One_File=1
+let g:Tlist_Exit_OnlyWindow = 1
+nnoremap <silent> <F8> :TlistToggle<CR>
+
 " vimclojure repl mappings
 map <silent> <f2> <leader>et
 imap <silent> <f2> <leader>et
@@ -202,7 +211,6 @@ imap <silent> <f3> <leader>ef
 
 map <Leader>n :NERDTreeToggle<CR>
 nmap <silent> ,t :CommandT<cr>
-
 " }}}
 
 " Language specific {{{
