@@ -25,3 +25,6 @@
 [submodule "bundle/stl-ref"]
 	path = bundle/stl-ref
 	url = git://github.com/vim-scripts/stlrefvim.git
+[submodule "bundle/omni-cpp-complete"]
+	path = bundle/omni-cpp-complete
+	url = git://github.com/vim-scripts/OmniCppComplete.git
