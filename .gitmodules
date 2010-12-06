@@ -31,3 +31,6 @@
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/scala"]
+	path = bundle/scala
+	url = git://github.com/vim-scripts/scala.vim.git
