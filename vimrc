@@ -89,6 +89,7 @@ set shiftwidth=4 " number of spaces for each indent
 set expandtab " turn tabs into spaces
 set cindent
 set autoindent
+set autochdir " chdir on change buffer
 
 au BufWritePre * :%s/\s\+$//e " removing trailing whitespace on writing a file
 
