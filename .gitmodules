@@ -4,9 +4,6 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
-[submodule "bundle/clojure"]
-	path = bundle/clojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "bundle/nerd-tree"]
 	path = bundle/nerd-tree
 	url = git://github.com/vim-scripts/The-NERD-tree.git
