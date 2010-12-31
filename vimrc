@@ -62,7 +62,7 @@ set showcmd " display incomplete commands
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 
 set wildmenu " wmenu for file/command completion
-set wildignore+=bin,classes,build,lib,.hg,.git,*.class,*.jar,*.o,*.hi,*.pyc,*~
+set wildignore+=classes,build,.hg,.git,*.class,*.jar,*.o,*.hi,*.pyc,*~
 set wildchar=<TAB>
 set shellslash " use / rather than \ for filenames
 
@@ -76,7 +76,6 @@ set showmatch " bouncy parens, must have
 set nolazyredraw " don't redraw while executing macros
 set splitright
 set list listchars=tab:▸\ ,trail:·
-set mouse=a " you can also use the * register
 set ttymouse=xterm2 " magic stuff to enable the mouse
 set scrolloff=2 " minimum lines between cursor and window edge
 set laststatus=2
@@ -89,9 +88,6 @@ set shiftwidth=4 " number of spaces for each indent
 set expandtab " turn tabs into spaces
 set cindent
 set autoindent
-set autochdir " chdir on change buffer
-
-au BufWritePre * :%s/\s\+$//e " removing trailing whitespace on writing a file
 
 au FocusLost * :wa " save file when losing focus
 " }}}
