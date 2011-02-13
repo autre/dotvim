@@ -35,7 +35,7 @@ if has('gui_running')
   "colorscheme desert
   colorscheme ir_black
 else
-  colorscheme elflord
+  colorscheme desert256
 endif
 " }}}
 
@@ -171,7 +171,7 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+"map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 nmap \n :cn<cr>
 nmap \p :cp<cr>
