@@ -26,7 +26,7 @@ if has('gui_running')
   if has("gui_mac") || has("gui_macvim")
     set guifont=Inconsolata:h16
   else
-    set guifont=Droid\ Sans\ Mono\ Slashed\ 14
+    set guifont=Monaco
   endif
 
   " Remove GUI menu and toolbar
