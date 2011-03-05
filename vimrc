@@ -24,7 +24,7 @@ if has('gui_running')
   set t_Co=256
 
   if has("gui_mac") || has("gui_macvim")
-    set guifont=Monaco:h14
+    set guifont=Inconsolata:h16
   else
     set guifont=Droid\ Sans\ Mono\ Slashed\ 14
   endif
@@ -32,9 +32,10 @@ if has('gui_running')
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-  "colorscheme desert
+  set background=dark
   colorscheme ir_black
 else
+  set background=dark
   colorscheme desert256
 endif
 " }}}
