@@ -40,3 +40,6 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = git://github.com/vim-scripts/Markdown-syntax.git
+[submodule "bundle/javacomplete"]
+	path = bundle/javacomplete
+	url = git://github.com/vim-scripts/javacomplete.git
