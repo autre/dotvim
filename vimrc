@@ -23,11 +23,7 @@ set background=dark
 if has('gui_running')
   set t_Co=256
 
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Inconsolata:h16
-  else
-    set guifont=Monaco
-  endif
+  set guifont=Inconsolata\ 12
 
   " Remove GUI menu and toolbar
   set guioptions-=m
@@ -226,6 +222,7 @@ au FileType clojure :ToggleRaibowParenthesis
 au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
 au FileType scheme :ToggleRaibowParenthesis
 au FileType java setl makeprg=ant\ -emacs\ -find
+au FileType java setl tags=~/.tags,.tags complete=.,w,b,u,t,i omnifunc=javacomplete#Complete
 au FileType java map! <m-f5> :make<cr>
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType xml setl softtabstop=2 shiftwidth=2
