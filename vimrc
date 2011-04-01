@@ -215,6 +215,7 @@ au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
+au FileType java :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
 au FileType coffeescript :ToggleRaibowParenthesis
 au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
