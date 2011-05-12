@@ -188,9 +188,10 @@ let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow = 1
 
 let NERDTreeSortOrder = ['\/$', '\.py', '\.y', '\.h', '\.c', '\.hs']
-let NERDTreeWinSize = 20
+let NERDTreeWinSize = 30
 let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
-let NERDTreeWinPos = "right"
+let NERDTreeWinPos = "left"
+map <Leader>l :NERDTreeToggle<cr>
 
 let g:CommandTMaxHeight=20
 
@@ -206,7 +207,6 @@ imap <silent> <f2> <leader>et
 map <silent> <f3> <leader>ef
 imap <silent> <f3> <leader>ef
 
-map <Leader>n :NERDTreeToggle<CR>
 nmap <silent> ,t :CommandT<cr>
 " }}}
 
