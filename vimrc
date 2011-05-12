@@ -12,11 +12,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Manage plugins with pathogen {{{1
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" }}}
-
 " Gui fonts & colors {{{1
 set background=dark
 
