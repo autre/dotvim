@@ -11,11 +11,24 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off                   " required!
 
-" Manage plugins with pathogen {{{1
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" }}}
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+" bundles
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'vim-scripts/snipMate'
+Bundle 'vim-scripts/matchit.zip'
+Bundle 'vim-scripts/taglist-plus'
+Bundle 'vim-scripts/javacomplete'
+Bundle 'vim-scripts/Command-T'
+Bundle 'autre/Rainbow-Parenthsis-Bundle'
+
+filetype plugin indent on     " required!
 
 " Gui fonts & colors {{{1
 set background=dark
@@ -188,9 +201,10 @@ let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow = 1
 
 let NERDTreeSortOrder = ['\/$', '\.py', '\.y', '\.h', '\.c', '\.hs']
-let NERDTreeWinSize = 20
+let NERDTreeWinSize = 30
 let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
-let NERDTreeWinPos = "right"
+let NERDTreeWinPos = "left"
+map <Leader>l :NERDTreeToggle<cr>
 
 let g:CommandTMaxHeight=20
 
@@ -206,7 +220,6 @@ imap <silent> <f2> <leader>et
 map <silent> <f3> <leader>ef
 imap <silent> <f3> <leader>ef
 
-map <Leader>n :NERDTreeToggle<CR>
 nmap <silent> ,t :CommandT<cr>
 " }}}
 
