@@ -11,6 +11,24 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off                   " required!
+
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+" bundles
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'vim-scripts/snipMate'
+Bundle 'vim-scripts/matchit.zip'
+Bundle 'vim-scripts/taglist-plus'
+Bundle 'vim-scripts/javacomplete'
+Bundle 'vim-scripts/Command-T'
+Bundle 'autre/Rainbow-Parenthsis-Bundle'
+
+filetype plugin indent on     " required!
 
 " Gui fonts & colors {{{1
 set background=dark
