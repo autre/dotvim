@@ -23,7 +23,7 @@ set background=dark
 if has('gui_running')
   set t_Co=256
 
-  set guifont=Inconsolata\ 12
+  set guifont=Inconsolata:h16
 
   " Remove GUI menu and toolbar
   set guioptions-=m
@@ -215,6 +215,7 @@ au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
+au FileType javascript setl tags=.tags
 au FileType java :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
 au FileType coffeescript :ToggleRaibowParenthesis
