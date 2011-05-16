@@ -36,7 +36,14 @@ set background=dark
 if has('gui_running')
   set t_Co=256
 
-  set guifont=Inconsolata:h16
+  if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      set guifont=Inconsolata:h16
+    else
+      set guifont=Inconsolata\ 13
+    endif
+  endif
 
   " Remove GUI menu and toolbar
   set guioptions-=m
