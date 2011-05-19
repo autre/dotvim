@@ -28,8 +28,6 @@ Bundle 'vim-scripts/taglist-plus'
 Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
-Bundle 'reinh/vim-makegreen'
-
 "}}}
 
 " Gui fonts & colors {{{1
