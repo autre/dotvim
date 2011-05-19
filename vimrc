@@ -16,9 +16,10 @@ filetype off                   " required!
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
-" bundles
+" bundles {{{1
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'vim-scripts/snipMate'
@@ -27,8 +28,9 @@ Bundle 'vim-scripts/taglist-plus'
 Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
+Bundle 'reinh/vim-makegreen'
 
-filetype plugin indent on     " required!
+"}}}
 
 " Gui fonts & colors {{{1
 set background=dark
@@ -236,16 +238,15 @@ au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
 au FileType javascript setl tags=.tags
-au FileType java :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
 au FileType coffeescript :ToggleRaibowParenthesis
 au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
 au FileType clojure :ToggleRaibowParenthesis
 au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
 au FileType scheme :ToggleRaibowParenthesis
-au FileType java setl makeprg=ant\ -emacs\ -find
+au FileType java :ToggleRaibowParenthesis
+au FileType java set makeprg=ant\ -emacs\ -q\ -find
 au FileType java setl tags=~/.tags,.tags complete=.,w,b,u,t,i omnifunc=javacomplete#Complete
-au FileType java map! <m-f5> :make<cr>
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType xml setl softtabstop=2 shiftwidth=2
 " }}}
