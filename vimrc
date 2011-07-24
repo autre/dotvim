@@ -11,7 +11,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype off                   " required!
+filetype off " required by vundler
 
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
@@ -29,6 +29,8 @@ Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 "}}}
+
+filetype on " bring it back on
 
 " Gui fonts & colors {{{1
 set background=dark
