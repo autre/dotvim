@@ -11,7 +11,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype off                   " required!
+filetype off " required by vundler
 
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
@@ -30,6 +30,8 @@ Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'nuclearsandwich/vim-latex'
 "}}}
+
+filetype on " bring it back on
 
 " Gui fonts & colors {{{1
 set background=dark
@@ -237,6 +239,7 @@ au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
 au FileType javascript setl tags=.tags
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 au BufRead,BufNewFile *.json setl filetype=javascript
 au FileType coffeescript :ToggleRaibowParenthesis
 au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
@@ -247,8 +250,10 @@ au FileType java :ToggleRaibowParenthesis
 au FileType java set makeprg=ant\ -emacs\ -q\ -find
 au FileType java setl tags=~/.tags,.tags complete=.,w,b,u,t,i omnifunc=javacomplete#Complete
 au FileType html setl softtabstop=2 shiftwidth=2
+au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType xml setl softtabstop=2 shiftwidth=2
 au FileType tex setl grepprg=grep\ -nH\ $* sw=2 iskeyword+=:
+au FileType css set omnifunc=csscomplete#CompleteCSS
 
 let g:tex_flavor='latex'
 " }}}
