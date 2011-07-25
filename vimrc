@@ -28,6 +28,7 @@ Bundle 'vim-scripts/taglist-plus'
 Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
+Bundle 'nuclearsandwich/vim-latex'
 "}}}
 
 " Gui fonts & colors {{{1
@@ -247,6 +248,9 @@ au FileType java set makeprg=ant\ -emacs\ -q\ -find
 au FileType java setl tags=~/.tags,.tags complete=.,w,b,u,t,i omnifunc=javacomplete#Complete
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType xml setl softtabstop=2 shiftwidth=2
+au FileType tex setl grepprg=grep\ -nH\ $* sw=2 iskeyword+=:
+
+let g:tex_flavor='latex'
 " }}}
 
 " Various functions {{{
