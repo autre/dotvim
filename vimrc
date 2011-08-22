@@ -97,6 +97,8 @@ set nolazyredraw " don't redraw while executing macros
 set splitright
 set list listchars=tab:▸\ ,trail:·
 set ttymouse=xterm2 " magic stuff to enable the mouse
+set mouse=a
+set mousemodel=popup
 set scrolloff=2 " minimum lines between cursor and window edge
 set laststatus=2
 set statusline=\ %m%f%r%h\ %y\ \ %=%(%l,\ %c%)
