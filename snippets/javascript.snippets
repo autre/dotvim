@@ -1,8 +1,26 @@
 
-snippet test "test function"
-exports.test_$1 = function() {
+snippet test' "test function"
+exports.test_${1:that} = function() {
     $2
 };
 
+$3
+endsnippet
+
+
+snippet test "test long name function"
+exports['test ${1:that}'] = function() {
+    $2
+};
+
+$3
+endsnippet
+
+snippet ass "assert strict equal"
+assert.strict_equal(${1:actual}, ${2:expected});
+endsnippet
+
+snippet asd "assert deep equal"
+assert.deep_equal(${1:actual}, ${2:expected});
 endsnippet
 
