@@ -31,6 +31,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'int3/vim-taglist-plus'
+Bundle 'vim-scripts/UltiSnips'
 "}}}
 
 filetype on " bring it back on
@@ -245,6 +246,11 @@ nnoremap <leader>l :TlistOpen<CR>
 let g:Tlist_WinWidth='auto'
 let g:Tlist_File_Fold_Auto_Close=1
 let g:Tlist_Use_Right_Window=1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 " }}}
 
 " Language specific {{{
