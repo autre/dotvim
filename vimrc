@@ -30,6 +30,7 @@ Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
+Bundle 'int3/vim-taglist-plus'
 "}}}
 
 filetype on " bring it back on
@@ -239,6 +240,11 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
+
+nnoremap <leader>l :TlistOpen<CR>
+let g:Tlist_WinWidth='auto'
+let g:Tlist_File_Fold_Auto_Close=1
+let g:Tlist_Use_Right_Window=1
 " }}}
 
 " Language specific {{{
