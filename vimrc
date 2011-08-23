@@ -30,6 +30,7 @@ Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'Raimondi/delimitMate'
 "}}}
 
 filetype on " bring it back on
@@ -167,24 +168,24 @@ map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
 
-" The following came from
-" http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap { {}<Left>
-autocmd Syntax html,vim inoremap < <lt>><left>
-
-function! ClosePair(char)
-  if getline('.')[col('.') - 1] == a:char
-    return "\<Right>"
-  else
-    return a:char
-  endif
-endf
-
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap ] <c-r>=ClosePair(']')<CR>
+"" The following came from
+"" http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html
+"inoremap ( ()<Left>
+"inoremap [ []<Left>
+"inoremap { {}<Left>
+"autocmd Syntax html,vim inoremap < <lt>><left>
+"
+"function! ClosePair(char)
+"  if getline('.')[col('.') - 1] == a:char
+"    return "\<Right>"
+"  else
+"    return a:char
+"  endif
+"endf
+"
+"inoremap ) <c-r>=ClosePair(')')<CR>
+"inoremap } <c-r>=ClosePair('}')<CR>
+"inoremap ] <c-r>=ClosePair(']')<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
@@ -239,7 +240,6 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-
 " }}}
 
 " Language specific {{{
