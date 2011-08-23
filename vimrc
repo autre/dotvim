@@ -29,6 +29,7 @@ Bundle 'vim-scripts/javacomplete'
 Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Raimondi/delimitMate'
+Bundle 'ervandew/supertab'
 "}}}
 
 filetype on " bring it back on
