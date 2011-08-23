@@ -29,6 +29,7 @@ Bundle 'vim-scripts/javacomplete'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'nuclearsandwich/vim-latex'
+Bundle 'altercation/vim-colors-solarized'
 "}}}
 
 filetype on " bring it back on
@@ -51,8 +52,8 @@ if has('gui_running')
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-  set background=dark
-  colorscheme ir_black
+  set background=light
+  colorscheme solarized
 else
   set background=dark
   colorscheme desert256
@@ -233,6 +234,12 @@ map <silent> <f3> <leader>ef
 imap <silent> <f3> <leader>ef
 
 nmap <silent> ,t :CommandT<cr>
+
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+
 " }}}
 
 " Language specific {{{
