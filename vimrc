@@ -217,7 +217,7 @@ let NERDTreeSortOrder = ['\/$', '\.py', '\.y', '\.h', '\.c', '\.hs']
 let NERDTreeWinSize = 30
 let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
 let NERDTreeWinPos = "left"
-map <Leader>l :NERDTreeToggle<cr>
+map <Leader>p :NERDTreeToggle<cr>
 
 let g:CommandTMaxHeight=20
 
