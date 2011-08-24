@@ -30,8 +30,8 @@ Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
-Bundle 'int3/vim-taglist-plus'
 Bundle 'vim-scripts/UltiSnips'
+Bundle 'majutsushi/tagbar'
 "}}}
 
 filetype on " bring it back on
@@ -211,13 +211,8 @@ let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
 let NERDTreeWinPos = "left"
 map <Leader>pro :NERDTreeToggle<cr>
 
-let g:CommandTMaxHeight=20
-
-let g:Tlist_Compact_Format=1
-let g:Tlist_Highlight_Tag_On_BufEnter=1
-let g:Tlist_Show_One_File=1
-let g:Tlist_Exit_OnlyWindow = 1
-nnoremap <silent> <F8> :TlistToggle<CR>
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
 
 " solarized config
 let g:solarized_termtrans=1
@@ -266,6 +261,3 @@ fun! IndentStayPut()
   execute ':' . oldLine
 endf
 " }}}
-
-
-
