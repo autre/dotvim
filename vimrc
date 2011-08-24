@@ -169,37 +169,16 @@ map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
 
-"" The following came from
-"" http://concisionandconcinnity.blogspot.com/2009/07/vim-part-ii-matching-pairs.html
-"inoremap ( ()<Left>
-"inoremap [ []<Left>
-"inoremap { {}<Left>
-"autocmd Syntax html,vim inoremap < <lt>><left>
-"
-"function! ClosePair(char)
-"  if getline('.')[col('.') - 1] == a:char
-"    return "\<Right>"
-"  else
-"    return a:char
-"  endif
-"endf
-"
-"inoremap ) <c-r>=ClosePair(')')<CR>
-"inoremap } <c-r>=ClosePair('}')<CR>
-"inoremap ] <c-r>=ClosePair(']')<CR>
-
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-" Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-"map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " CTags
 "map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-nmap \n :cn<cr>
-nmap \p :cp<cr>
+" moving through errors
+nmap <Leader>n :cn<cr>
+nmap <Leader>p :cp<cr>
 "}}}
 
 " Highlighting, syntax, indentation {{{
@@ -211,15 +190,26 @@ syntax on
 " }}}
 
 " Plugin stuff {{{
+
+" command-t
+nmap <silent> ,t :CommandT<cr>
+let g:CommandTMaxHeight=20
+
+" vimclojure config
 let vimclojure#WantNailgun = 1
 let vimclojure#HighlightBuiltins = 1
 let vimclojure#ParenRainbow = 1
+map <silent> <f2> <leader>et
+imap <silent> <f2> <leader>et
+map <silent> <f3> <leader>ef
+imap <silent> <f3> <leader>ef
 
+" nerd-tree config
 let NERDTreeSortOrder = ['\/$', '\.py', '\.y', '\.h', '\.c', '\.hs']
 let NERDTreeWinSize = 30
 let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
 let NERDTreeWinPos = "left"
-map <Leader>p :NERDTreeToggle<cr>
+map <Leader>pro :NERDTreeToggle<cr>
 
 let g:CommandTMaxHeight=20
 
@@ -229,24 +219,14 @@ let g:Tlist_Show_One_File=1
 let g:Tlist_Exit_OnlyWindow = 1
 nnoremap <silent> <F8> :TlistToggle<CR>
 
-" vimclojure repl mappings
-map <silent> <f2> <leader>et
-imap <silent> <f2> <leader>et
-map <silent> <f3> <leader>ef
-imap <silent> <f3> <leader>ef
-
-nmap <silent> ,t :CommandT<cr>
-
+" solarized config
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
-nnoremap <leader>l :TlistOpen<CR>
-let g:Tlist_WinWidth='auto'
-let g:Tlist_File_Fold_Auto_Close=1
-let g:Tlist_Use_Right_Window=1
-
+" ulti snippets config
+" emulate textmate tab behavior
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -285,5 +265,7 @@ fun! IndentStayPut()
   normal(gg=G)
   execute ':' . oldLine
 endf
-
 " }}}
+
+
+
