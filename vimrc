@@ -37,8 +37,6 @@ Bundle 'majutsushi/tagbar'
 filetype on " bring it back on
 
 " Gui fonts & colors {{{1
-set background=dark
-
 if has('gui_running')
   set t_Co=256
 
@@ -46,15 +44,17 @@ if has('gui_running')
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
       set guifont=Inconsolata:h16
+      set background=light
     else
       set guifont=Inconsolata\ 13
+      set background=dark
+      colorscheme solarized
     endif
   endif
 
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-  set background=light
   colorscheme solarized
 else
   set background=dark
