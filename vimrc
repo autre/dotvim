@@ -48,17 +48,17 @@ if has('gui_running')
     else
       set guifont=Inconsolata\ 13
       set background=dark
-      colorscheme solarized
+      colorscheme molokai
     endif
   endif
 
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-  colorscheme solarized
+  colorscheme molokai
 else
-  set background=dark
-  colorscheme desert256
+  set background=light
+  colorscheme molokai
 endif
 " }}}
 
