@@ -175,10 +175,6 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " CTags
 "map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
-" moving through errors
-nmap <Leader>n :cn<cr>
-nmap <Leader>p :cp<cr>
 "}}}
 
 " Highlighting, syntax, indentation {{{
