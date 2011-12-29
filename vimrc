@@ -36,30 +36,26 @@ Bundle 'majutsushi/tagbar'
 
 filetype on " bring it back on
 
+let s:uname = system("uname")
+
 " Gui fonts & colors {{{1
 if has('gui_running')
-  set t_Co=256
-
-  if has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-      set guifont=Inconsolata:h16
-      set background=light
-    else
-      set guifont=Inconsolata\ 13
-      set background=dark
-      colorscheme molokai
-    endif
-  endif
-
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-  colorscheme molokai
-else
-  set background=light
-  colorscheme molokai
+
+  set t_Co=256
+
+  if s:uname == "Darwin\n"
+    set guifont=Inconsolata:h16
+  else
+    set guifont=Inconsolata\ 13
+  endif
 endif
+
+set background=dark
+colorscheme molokai
+
 " }}}
 
 " General settings {{{1
@@ -257,3 +253,4 @@ fun! IndentStayPut()
   execute ':' . oldLine
 endf
 " }}}
+
