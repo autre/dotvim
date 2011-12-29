@@ -20,7 +20,6 @@ call vundle#rc()
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'vim-scripts/matchit.zip'
@@ -32,6 +31,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/slimv.vim'
 "}}}
 
 filetype on " bring it back on
@@ -164,13 +164,6 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
-
-" Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" CTags
-"map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 "}}}
 
 " Highlighting, syntax, indentation {{{
@@ -218,6 +211,14 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
+" slimv/lisp
+if s:uname == "Darwin\n"
+    let g:slimv_python='/usr/local/bin/python'
+    " TODO: use term instead of xterm for slimv_swank_cmd
+else
+    let g:slimv_python='/usr/bin/python2'
+endif
 " }}}
 
 " Language specific {{{
@@ -233,6 +234,7 @@ au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
 au FileType clojure :ToggleRaibowParenthesis
 au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
 au FileType scheme :ToggleRaibowParenthesis
+au FileType lisp :ToggleRaibowParenthesis
 au FileType java :ToggleRaibowParenthesis
 au FileType java set makeprg=ant\ -emacs\ -q\ -find
 au FileType java setl tags=~/.tags,.tags complete=.,w,b,u,t,i omnifunc=javacomplete#Complete
@@ -245,7 +247,7 @@ au FileType css set omnifunc=csscomplete#CompleteCSS
 let g:tex_flavor='latex'
 " }}}
 
-" Various functions {{{
+" Various helpers {{{
 " reformat file
 fun! IndentStayPut()
   let oldLine=line('.')
@@ -253,4 +255,3 @@ fun! IndentStayPut()
   execute ':' . oldLine
 endf
 " }}}
-
