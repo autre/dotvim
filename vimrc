@@ -19,19 +19,15 @@ call vundle#rc()
 " bundles {{{1
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'vim-scripts/matchit.zip'
-Bundle 'vim-scripts/The-NERD-tree'
-Bundle 'vim-scripts/javacomplete'
 Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/UltiSnips'
-Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/slimv.vim'
+Bundle 'wlangstroth/vim-racket'
 "}}}
 
 filetype on " bring it back on
@@ -180,24 +176,10 @@ syntax on
 nmap <silent> ,t :CommandT<cr>
 let g:CommandTMaxHeight=20
 
-" vimclojure config
-let vimclojure#WantNailgun = 1
-let vimclojure#HighlightBuiltins = 1
-let vimclojure#ParenRainbow = 1
 map <silent> <f2> <leader>et
 imap <silent> <f2> <leader>et
 map <silent> <f3> <leader>ef
 imap <silent> <f3> <leader>ef
-
-" nerd-tree config
-let NERDTreeSortOrder = ['\/$', '\.py', '\.y', '\.h', '\.c', '\.hs']
-let NERDTreeWinSize = 30
-let NERDTreeIgnore = ['\.o', '\.hi', '\.pyc', '\.class']
-let NERDTreeWinPos = "left"
-map <Leader>pro :NERDTreeToggle<cr>
-
-let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
 
 " solarized config
 let g:solarized_termtrans=1
@@ -205,17 +187,10 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
-" ulti snippets config
-" emulate textmate tab behavior
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
-
 " slimv/lisp
 if s:uname == "Darwin\n"
     let g:slimv_python='/usr/local/bin/python'
-    " TODO: use term instead of xterm for slimv_swank_cmd
+    let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/bundle/slimv.vim/slime/start-swank.lisp\""'
 else
     let g:slimv_python='/usr/bin/python2'
 endif
@@ -226,18 +201,13 @@ au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
-au FileType javascript setl tags=.tags
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 au BufRead,BufNewFile *.json setl filetype=javascript
-au FileType coffeescript :ToggleRaibowParenthesis
-au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
-au FileType clojure :ToggleRaibowParenthesis
-au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
-au FileType scheme :ToggleRaibowParenthesis
-au FileType lisp :ToggleRaibowParenthesis
-au FileType java :ToggleRaibowParenthesis
-au FileType java set makeprg=ant\ -emacs\ -q\ -find
-au FileType java setl tags=~/.tags,.tags complete=.,w,b,u,t,i omnifunc=javacomplete#Complete
+" au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
+" au FileType clojure :ToggleRaibowParenthesis
+" au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
+" au FileType scheme :ToggleRaibowParenthesis
+" au FileType lisp :ToggleRaibowParenthesis
+au FileType lisp,scheme,art setlocal equalprg=lispindent.lisp " proper lisp indentation
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType xml setl softtabstop=2 shiftwidth=2
