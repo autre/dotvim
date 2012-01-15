@@ -32,26 +32,7 @@ Bundle 'Lokaltog/vim-powerline'
 
 filetype on " bring it back on
 
-let s:uname = system("uname")
-
-" Gui fonts & colors {{{1
-if has('gui_running')
-  " Remove GUI menu and toolbar
-  set guioptions-=m
-  set guioptions-=T
-
-  set t_Co=256
-
-  if s:uname == "Darwin\n"
-    set guifont=Inconsolata:h16
-  else
-    set guifont=Inconsolata\ 13
-  endif
-endif
-
-set background=dark
-colorscheme molokai
-" }}}
+let s:os = substitute(system('uname'), '\n', '', '')
 
 " General settings {{{1
 set encoding=utf-8
@@ -63,14 +44,6 @@ set dir=/tmp
 set backup
 exec "set backupdir=" . "$HOME/.bak"
 set autoread " Set to auto read when a file is changed from the outside
-autocmd! Bufwritepost $MYVIMRC source $MYVIMRC " on .vimrc change, auto source
-
-" When editing a file, always jump to the last known cursor position.
-autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-
 set ruler " show the cursor position all the time
 set showcmd " display incomplete commands
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -107,6 +80,25 @@ set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
 
 au FocusLost * :wa " save file when losing focus
+" }}}
+
+" Gui fonts & colors {{{1
+if has('gui_running')
+  " Remove GUI menu and toolbar
+  set guioptions-=m
+  set guioptions-=T
+
+  set t_Co=256
+
+  if s:os == "Darwin"
+    set guifont=Inconsolata:h16
+  else
+    set guifont=Inconsolata\ 13
+  endif
+endif
+
+set background=dark
+colorscheme molokai
 " }}}
 
 " Basic mappings {{{
@@ -180,7 +172,7 @@ let g:solarized_visibility="high"
 let g:tex_flavor='latex'
 
 " slimv/lisp
-if s:uname == "Darwin\n"
+if s:os == "Darwin"
     let g:slimv_python='/usr/local/bin/python'
     let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/bundle/slimv.vim/slime/start-swank.lisp\""'
 else
@@ -203,6 +195,15 @@ au FileType css set omnifunc=csscomplete#CompleteCSS
 " }}}
 
 " Various helpers {{{
+" on .vimrc change, auto source
+autocmd! Bufwritepost $MYVIMRC source $MYVIMRC
+
+" When editing a file, always jump to the last known cursor position.
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+
 " reformat file
 fun! IndentStayPut()
   let oldLine=line('.')
