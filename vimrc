@@ -24,10 +24,10 @@ Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/slimv.vim'
 Bundle 'wlangstroth/vim-racket'
+Bundle 'Lokaltog/vim-powerline'
 "}}}
 
 filetype on " bring it back on
@@ -51,7 +51,6 @@ endif
 
 set background=dark
 colorscheme molokai
-
 " }}}
 
 " General settings {{{1
@@ -110,7 +109,6 @@ au FocusLost * :wa " save file when losing focus
 " }}}
 
 " Basic mappings {{{
-
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
@@ -176,16 +174,13 @@ syntax on
 nmap <silent> ,t :CommandT<cr>
 let g:CommandTMaxHeight=20
 
-map <silent> <f2> <leader>et
-imap <silent> <f2> <leader>et
-map <silent> <f3> <leader>ef
-imap <silent> <f3> <leader>ef
-
 " solarized config
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
+
+let g:tex_flavor='latex'
 
 " slimv/lisp
 if s:uname == "Darwin\n"
@@ -202,19 +197,12 @@ au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
-" au FileType clojure setl softtabstop=2 shiftwidth=2 lisp
-" au FileType clojure :ToggleRaibowParenthesis
-" au FileType scheme setl softtabstop=2 shiftwidth=2 lisp
-" au FileType scheme :ToggleRaibowParenthesis
-" au FileType lisp :ToggleRaibowParenthesis
 au FileType lisp,scheme,art setlocal equalprg=lispindent.lisp " proper lisp indentation
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType xml setl softtabstop=2 shiftwidth=2
 au FileType tex setl grepprg=grep\ -nH\ $* sw=2 iskeyword+=:
 au FileType css set omnifunc=csscomplete#CompleteCSS
-
-let g:tex_flavor='latex'
 " }}}
 
 " Various helpers {{{
