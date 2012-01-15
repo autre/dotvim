@@ -104,6 +104,7 @@ set shiftwidth=4 " number of spaces for each indent
 set expandtab " turn tabs into spaces
 set cindent
 set autoindent
+set clipboard+=unnamed " Put contents of unnamed register in system clipboard
 
 au FocusLost * :wa " save file when losing focus
 " }}}
@@ -112,7 +113,7 @@ au FocusLost * :wa " save file when losing focus
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
-let maplocalleader = ","
+let maplocalleader = "\\"
 
 map == :call IndentStayPut()<cr>
 
@@ -131,10 +132,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-" Clipboard copy/paste
-vmap <Leader>c "+y
-map <Leader>v "+gP
 
 " Move by screen lines rather than actual lines
 map j gj
