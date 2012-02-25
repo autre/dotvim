@@ -28,6 +28,7 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/slimv.vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree'
 "}}}
 
 filetype on " bring it back on
