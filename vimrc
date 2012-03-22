@@ -148,6 +148,10 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
+
+" work around the breakage between tmux and command-t
+" when issuing ,t and then arrow key.
+map <Esc>[B <Down>
 "}}}
 
 " Highlighting, syntax, indentation {{{
