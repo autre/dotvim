@@ -177,6 +177,8 @@ let g:solarized_visibility="high"
 let g:tex_flavor='latex'
 
 " slimv/lisp
+let g:slimv_keybindings=2
+
 if s:os == "Darwin"
     let g:slimv_python='/usr/local/bin/python'
     let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/bundle/slimv.vim/slime/start-swank.lisp\""'
