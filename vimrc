@@ -29,6 +29,7 @@ Bundle 'vim-scripts/slimv.vim'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
 "}}}
 
 filetype on " bring it back on
@@ -183,6 +184,11 @@ if s:os == "Darwin"
 else
     let g:slimv_python='/usr/bin/python2'
 endif
+
+" tagbar
+let g:tagbar_width=28 " Default is 40, seems too wide
+" Display panel with \y (or ,y)
+noremap <silent> <Leader>y :TagbarToggle<cr>
 " }}}
 
 " Language specific {{{
