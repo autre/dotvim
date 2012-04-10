@@ -30,6 +30,7 @@ Bundle 'wlangstroth/vim-racket'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/syntastic'
 "}}}
 
 filetype on " bring it back on
@@ -189,6 +190,10 @@ endif
 let g:tagbar_width=28 " Default is 40, seems too wide
 " Display panel with \y (or ,y)
 noremap <silent> <Leader>y :TagbarToggle<cr>
+
+" syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
 " }}}
 
 " Language specific {{{
