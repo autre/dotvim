@@ -187,6 +187,10 @@ else
 endif
 
 " tagbar
+if s:os == "Darwin"
+    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+endif
+
 let g:tagbar_width=28 " Default is 40, seems too wide
 " Display panel with \y (or ,y)
 noremap <silent> <Leader>y :TagbarToggle<cr>
@@ -201,8 +205,9 @@ au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
+au FileType lisp :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
-au FileType lisp,scheme,art setlocal equalprg=lispindent.lisp " proper lisp indentation
+au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType xml setl softtabstop=2 shiftwidth=2
