@@ -24,9 +24,7 @@ Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/slimv.vim'
-Bundle 'wlangstroth/vim-racket'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
@@ -194,10 +192,16 @@ endif
 let g:tagbar_width=28 " Default is 40, seems too wide
 " Display panel with \y (or ,y)
 noremap <silent> <Leader>y :TagbarToggle<cr>
+map <f4> :TagbarToggle<cr>
+imap <f4> <esc>:TagbarToggle<cr>
 
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
+
+" toggles NERDTree on and off
+map <f2> :NERDTreeToggle<cr>
+imap <f2> <esc>:NERDTreeToggle<cr>i
 " }}}
 
 " Language specific {{{
