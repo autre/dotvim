@@ -19,7 +19,6 @@ call vundle#rc()
 " bundles {{{1
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/Command-T'
 Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'nuclearsandwich/vim-latex'
@@ -29,6 +28,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
+Bundle 'kien/ctrlp.vim'
 "}}}
 
 filetype on " bring it back on
@@ -164,9 +164,8 @@ syntax on
 
 " Plugin stuff {{{
 
-" command-t
-nmap <silent> ,r :CommandT<cr>
-let g:CommandTMaxHeight=20
+" ctrl-p
+nmap <silent> ,r :CtrlP<cr>
 
 " solarized config
 let g:solarized_termtrans=1
