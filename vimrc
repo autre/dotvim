@@ -29,6 +29,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
+Bundle "pangloss/vim-javascript"
 "}}}
 
 filetype on " bring it back on
