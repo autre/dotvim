@@ -30,6 +30,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle "pangloss/vim-javascript"
+Bundle "bitfyre/vim-indent-html"
 "}}}
 
 filetype on " bring it back on
@@ -202,6 +203,11 @@ let g:syntastic_quiet_warnings=1
 " toggles NERDTree on and off
 map <f2> :NERDTreeToggle<cr>
 imap <f2> <esc>:NERDTreeToggle<cr>i
+
+" indent/html
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 " }}}
 
 " Language specific {{{
