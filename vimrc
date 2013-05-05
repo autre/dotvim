@@ -82,6 +82,7 @@ set expandtab " turn tabs into spaces
 set cindent
 set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
+set tags=./.tags,.tags;/,~/.tags
 
 au FocusLost * :wa " save file when losing focus
 " }}}
@@ -219,6 +220,7 @@ au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
 au FileType javascript :ToggleRaibowParenthesis
+au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
 au FileType lisp :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
 au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
