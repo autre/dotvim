@@ -32,6 +32,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bitfyre/vim-indent-html'
 Bundle 'vim-scripts/taglist-plus'
+Bundle 'ervandew/supertab'
 "}}}
 
 filetype on " bring it back on
@@ -208,6 +209,10 @@ let g:syntastic_quiet_warnings=1
 " toggles NERDTree on and off
 map <f2> :NERDTreeToggle<cr>
 imap <f2> <esc>:NERDTreeToggle<cr>i
+
+" super tab
+let g:SuperTabMappingForward = '<D-space>'
+let g:SuperTabDefaultCompletionType = 'context'
 
 " indent/html
 let g:html_indent_inctags = "html,body,head,tbody"
