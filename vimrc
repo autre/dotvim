@@ -29,8 +29,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
-Bundle "pangloss/vim-javascript"
-Bundle "bitfyre/vim-indent-html"
+Bundle 'pangloss/vim-javascript'
+Bundle 'bitfyre/vim-indent-html'
+Bundle 'vim-scripts/taglist-plus'
 "}}}
 
 filetype on " bring it back on
@@ -190,11 +191,14 @@ if s:os == "Darwin"
     let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 endif
 
+let g:tagbar_type_javascript = { 'ctagsbin' : '/usr/local/bin/jsctags' }
 let g:tagbar_width=28 " Default is 40, seems too wide
-" Display panel with \y (or ,y)
-noremap <silent> <Leader>y :TagbarToggle<cr>
 map <f4> :TagbarToggle<cr>
 imap <f4> <esc>:TagbarToggle<cr>
+
+" taglist-plus (for js)
+map <f5> :TlistToggle<cr>
+imap <f5> <esc>:TlistToggle<cr>
 
 " syntastic
 let g:syntastic_enable_signs=1
