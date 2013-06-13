@@ -199,6 +199,8 @@ map <f4> :TagbarToggle<cr>
 imap <f4> <esc>:TagbarToggle<cr>
 
 " taglist-plus (for js)
+let g:Tlist_Use_Right_Window = 1
+let g:Tlist_WinWidth = 28
 map <f5> :TlistToggle<cr>
 imap <f5> <esc>:TlistToggle<cr>
 
