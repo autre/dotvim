@@ -99,7 +99,7 @@ if has('gui_running')
   if s:os == "Darwin"
     set guifont=Inconsolata:h16
   else
-    set guifont=Inconsolata\ 13
+    set guifont=Inconsolata\ 11
   endif
 endif
 
