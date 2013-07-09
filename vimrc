@@ -89,12 +89,17 @@ au FocusLost * :wa " save file when losing focus
 " }}}
 
 " Gui fonts & colors {{{1
+set t_Co=256
+set background=light
+colorscheme solarized
+
 if has('gui_running')
+  set background=dark
+  colorscheme solarized
+
   " Remove GUI menu and toolbar
   set guioptions-=m
   set guioptions-=T
-
-  set t_Co=256
 
   if s:os == "Darwin"
     set guifont=Inconsolata:h16
@@ -102,9 +107,6 @@ if has('gui_running')
     set guifont=Inconsolata\ 11
   endif
 endif
-
-set background=dark
-colorscheme molokai
 " }}}
 
 " Basic mappings {{{
