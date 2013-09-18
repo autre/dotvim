@@ -25,14 +25,11 @@ Bundle 'nuclearsandwich/vim-latex'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/slimv.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bitfyre/vim-indent-html'
-Bundle 'vim-scripts/taglist-plus'
-Bundle 'ervandew/supertab'
 "}}}
 
 filetype on " bring it back on
@@ -90,7 +87,6 @@ au FocusLost * :wa " save file when losing focus
 
 " Gui fonts & colors {{{1
 set t_Co=256
-set background=light
 colorscheme solarized
 
 if has('gui_running')
@@ -200,23 +196,9 @@ let g:tagbar_width=28 " Default is 40, seems too wide
 map <f4> :TagbarToggle<cr>
 imap <f4> <esc>:TagbarToggle<cr>
 
-" taglist-plus (for js)
-let g:Tlist_Use_Right_Window = 1
-let g:Tlist_WinWidth = 28
-map <f5> :TlistToggle<cr>
-imap <f5> <esc>:TlistToggle<cr>
-
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-
-" toggles NERDTree on and off
-map <f2> :NERDTreeToggle<cr>
-imap <f2> <esc>:NERDTreeToggle<cr>i
-
-" super tab
-let g:SuperTabMappingForward = '<D-space>'
-let g:SuperTabDefaultCompletionType = 'context'
 
 " indent/html
 let g:html_indent_inctags = "html,body,head,tbody"
