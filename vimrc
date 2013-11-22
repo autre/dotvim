@@ -43,8 +43,8 @@ set fileformat=unix
 set history=1000
 set title
 set dir=/tmp
-set backup
-exec "set backupdir=" . "$HOME/.bak"
+set nobackup
+set nowritebackup
 set autoread " Set to auto read when a file is changed from the outside
 set ruler " show the cursor position all the time
 set showcmd " display incomplete commands
@@ -90,7 +90,6 @@ set t_Co=256
 colorscheme solarized
 
 if has('gui_running')
-  set background=dark
   colorscheme solarized
 
   " Remove GUI menu and toolbar
@@ -239,3 +238,11 @@ fun! IndentStayPut()
   execute ':' . oldLine
 endf
 " }}}
+
+if s:os == "Darwin"
+    set background=light
+    set background=dark
+else
+    set background=dark
+    set background=light
+endif
