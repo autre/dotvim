@@ -30,6 +30,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bitfyre/vim-indent-html'
+Bundle 'reinh/vim-makegreen'
+Bundle 'lambdalisue/nose.vim'
 "}}}
 
 filetype on " bring it back on
@@ -203,12 +205,15 @@ let g:syntastic_quiet_warnings=1
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
 " }}}
 
 " Language specific {{{
 au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
+au FileType python compiler nose
+au FileType python nmap <silent> <Leader>t :call MakeGreen("*.py")<cr>
 au FileType javascript :ToggleRaibowParenthesis
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
 au FileType lisp :ToggleRaibowParenthesis
