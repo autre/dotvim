@@ -248,6 +248,6 @@ if s:os == "Darwin"
     set background=light
     set background=dark
 else
-    set background=dark
     set background=light
+    set background=dark
 endif
