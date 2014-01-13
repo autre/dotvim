@@ -32,6 +32,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'bitfyre/vim-indent-html'
 Bundle 'reinh/vim-makegreen'
 Bundle 'lambdalisue/nose.vim'
+Bundle 'felipec/notmuch-vim-ruby'
 "}}}
 
 filetype on " bring it back on
@@ -206,6 +207,14 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+" notmuch
+let g:notmuch_folders = [
+    \ [ 'new', 'tag:inbox and tag:unread' ],
+    \ [ 'inbox', 'tag:inbox' ],
+    \ [ 'deleted', 'tag:deleted' ],
+    \ [ 'xerror', 'tag:xerror' ],
+    \ [ 'unread', 'tag:unread' ],
+    \ ]
 " }}}
 
 " Language specific {{{
