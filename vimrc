@@ -65,7 +65,7 @@ set smartcase " "case-sensitive if there are upper-case letters in the search pa
 set magic "Set magic on, for regular expressions
 
 set showmatch " bouncy parens, must have
-set nolazyredraw " don't redraw while executing macros
+set lazyredraw " redraw only when we need to
 set splitright
 set list listchars=tab:▸\ ,trail:·
 set ttymouse=xterm2 " magic stuff to enable the mouse
@@ -90,7 +90,7 @@ au FocusLost * :wa " save file when losing focus
 
 " Gui fonts & colors {{{1
 set t_Co=256
-colorscheme solarized
+colorscheme badwolf
 
 if has('gui_running')
   colorscheme solarized
@@ -157,6 +157,9 @@ map <c-l> <c-w>l
 " work around the breakage between tmux and command-t
 " when issuing ,t and then arrow key.
 map <Esc>[B <Down>
+
+" highlight last inserted text
+nnoremap gV `[v`]
 "}}}
 
 " Highlighting, syntax, indentation {{{
@@ -171,6 +174,10 @@ syntax on
 
 " ctrl-p
 nmap <silent> ,r :CtrlP<cr>
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " solarized config
 let g:solarized_termtrans=1
