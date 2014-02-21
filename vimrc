@@ -91,9 +91,10 @@ au FocusLost * :wa " save file when losing focus
 " Gui fonts & colors {{{1
 set t_Co=256
 colorscheme badwolf
+set background=dark
 
 if has('gui_running')
-  colorscheme solarized
+  colorscheme badwolf
 
   " Remove GUI menu and toolbar
   set guioptions-=m
@@ -218,8 +219,8 @@ let g:html_indent_style1 = "inc"
 let g:notmuch_folders = [
     \ [ 'new', 'tag:inbox and tag:unread' ],
     \ [ 'inbox', 'tag:inbox' ],
-    \ [ 'deleted', 'tag:deleted' ],
     \ [ 'xerror', 'tag:xerror' ],
+    \ [ 'trash', 'tag:trash' ],
     \ [ 'unread', 'tag:unread' ],
     \ ]
 " }}}
@@ -259,11 +260,3 @@ fun! IndentStayPut()
   execute ':' . oldLine
 endf
 " }}}
-
-if s:os == "Darwin"
-    set background=light
-    set background=dark
-else
-    set background=light
-    set background=dark
-endif
