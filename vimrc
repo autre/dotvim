@@ -161,6 +161,9 @@ map <Esc>[B <Down>
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
+" decode attachment (notmuch)
+vmap <leader>d <esc>:'<,'>:w !base64 -d
 "}}}
 
 " Highlighting, syntax, indentation {{{
