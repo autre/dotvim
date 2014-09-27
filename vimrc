@@ -231,7 +231,6 @@ let g:notmuch_folders = [
 au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
 au FileType python :ToggleRaibowParenthesis
-au FileType python compiler nose
 au FileType python nmap <silent> <Leader>t :call MakeGreen("*.py")<cr>
 au FileType javascript :ToggleRaibowParenthesis
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
