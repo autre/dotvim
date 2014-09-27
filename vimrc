@@ -209,7 +209,8 @@ imap <f4> <esc>:TagbarToggle<cr>
 
 " syntastic
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_messages = { 'level': 'warning' }
+let g:syntastic_quiet_messages = { 'level': 'all' }
+let g:syntastic_javascript_checkers = ['jshint']
 
 " indent/html
 let g:html_indent_inctags = "html,body,head,tbody"
