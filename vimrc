@@ -82,6 +82,8 @@ set cindent
 set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
 set tags=./.tags,.tags;/,~/.tags
+set diffopt+=vertical
+set cryptmethod=blowfish2
 
 au FocusLost * :wa " save file when losing focus
 " }}}
