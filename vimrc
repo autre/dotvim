@@ -30,7 +30,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'bitfyre/vim-indent-html'
 Bundle 'reinh/vim-makegreen'
-Bundle 'felipec/notmuch-vim-ruby'
 "}}}
 
 filetype on " bring it back on
