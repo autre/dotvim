@@ -19,17 +19,15 @@ call vundle#rc()
 " bundles {{{1
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
-Bundle 'autre/Rainbow-Parenthsis-Bundle'
 Bundle 'vim-scripts/matchit.zip'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/slimv.vim'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'bitfyre/vim-indent-html'
-Bundle 'reinh/vim-makegreen'
+Bundle 'vim-scripts/slimv.vim'
+
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'altercation/vim-colors-solarized'
 "}}}
 
 filetype on " bring it back on
@@ -217,36 +215,32 @@ let g:syntastic_enable_signs=1
 let g:syntastic_quiet_messages = { 'level': 'all' }
 let g:syntastic_javascript_checkers = ['jshint']
 
-" indent/html
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
-" notmuch
-let g:notmuch_folders = [
-    \ [ 'new', 'tag:inbox and tag:unread' ],
-    \ [ 'inbox', 'tag:inbox' ],
-    \ [ 'xerror', 'tag:xerror' ],
-    \ [ 'trash', 'tag:trash' ],
-    \ [ 'unread', 'tag:unread' ],
-    \ ]
+" rainbow_parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 " }}}
 
 " Language specific {{{
+au FileType java setl softtabstop=4 shiftwidth=4 et
+
 au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
-au FileType python :ToggleRaibowParenthesis
-au FileType python nmap <silent> <Leader>t :call MakeGreen("*.py")<cr>
+au FileType lisp :ToggleRaibowParenthesis
+au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
+
+au FileType javascript setl softtabstop=4 shiftwidth=4 et
 au FileType javascript :ToggleRaibowParenthesis
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
-au FileType lisp :ToggleRaibowParenthesis
 au BufRead,BufNewFile *.json setl filetype=javascript
-au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
+
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
-au FileType xml setl softtabstop=2 shiftwidth=2
-au FileType tex setl grepprg=grep\ -nH\ $* sw=2 iskeyword+=:
 au FileType css set omnifunc=csscomplete#CompleteCSS
+
+au FileType xml setl softtabstop=2 shiftwidth=2
+
 " }}}
 
 " Various helpers {{{
