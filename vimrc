@@ -16,7 +16,7 @@ filetype off " required by vundler
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
-" bundles {{{1
+" bundles {{{
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/matchit.zip'
@@ -34,7 +34,7 @@ filetype on " bring it back on
 
 let s:os = substitute(system('uname'), '\n', '', '')
 
-" General settings {{{1
+" General settings {{{
 set encoding=utf-8
 set fileencoding=utf-8
 set fileformat=unix
@@ -78,7 +78,7 @@ set expandtab " turn tabs into spaces
 set cindent
 set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
-set tags=.tags;~/.tags
+set tags=.tags
 set diffopt+=vertical
 "set cryptmethod=blowfish2
 
@@ -89,13 +89,10 @@ au CursorHold * checktime
 au FocusLost * :wa " save file when losing focus
 " }}}
 
-" Gui fonts & colors {{{1
-set t_Co=256
-colorscheme badwolf
-set background=dark
-
+" Gui fonts & colors {{{
 if has('gui_running')
-  colorscheme badwolf
+  set background=light
+  colorscheme solarized
 
   " Remove GUI menu and toolbar
   set guioptions-=m
@@ -106,6 +103,10 @@ if has('gui_running')
   else
     set guifont=Inconsolata\ 11
   endif
+else
+  set t_Co=256
+  set background=light
+  colorscheme badwolf
 endif
 " }}}
 
@@ -214,6 +215,7 @@ au Syntax * RainbowParenthesesLoadRound
 
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
+au BufWritePost *.java call system('ctags -f .tags -R src --languages=java -a '.expand('%'))
 
 au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
