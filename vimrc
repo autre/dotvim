@@ -82,7 +82,11 @@ set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
 set tags=./.tags,.tags;/,~/.tags
 set diffopt+=vertical
-set cryptmethod=blowfish2
+"set cryptmethod=blowfish2
+
+" check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
+set autoread
+au CursorHold * checktime
 
 au FocusLost * :wa " save file when losing focus
 " }}}
