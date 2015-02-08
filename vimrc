@@ -20,14 +20,14 @@ call vundle#rc()
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/matchit.zip'
-Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
+Bundle 'craigemery/vim-autotag'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/slimv.vim'
 
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
 "}}}
 
 filetype on " bring it back on
@@ -78,7 +78,7 @@ set expandtab " turn tabs into spaces
 set cindent
 set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
-set tags=./.tags,.tags;/,~/.tags
+set tags=.tags;~/.tags
 set diffopt+=vertical
 "set cryptmethod=blowfish2
 
@@ -199,16 +199,6 @@ if s:os == "Darwin"
 else
     let g:slimv_python='/usr/bin/python2'
 endif
-
-" tagbar
-if s:os == "Darwin"
-    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-endif
-
-let g:tagbar_type_javascript = { 'ctagsbin' : '/usr/local/bin/jsctags' }
-let g:tagbar_width=28 " Default is 40, seems too wide
-map <f4> :TagbarToggle<cr>
-imap <f4> <esc>:TagbarToggle<cr>
 
 " syntastic
 let g:syntastic_enable_signs=1
