@@ -108,7 +108,7 @@ if has('gui_running')
 else
   set t_Co=256
   set background=light
-  colorscheme badwolf
+  colorscheme solarized
 endif
 " }}}
 
@@ -211,8 +211,6 @@ let g:syntastic_javascript_checkers = ['jshint']
 " rainbow_parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
 
 "notmuch
 let g:notmuch_folders = [
@@ -230,11 +228,9 @@ au BufWritePost *.java call system('ctags -f .tags -R src --languages=java -a '.
 
 au FileType c setl softtabstop=8 shiftwidth=8 noet
 au FileType sh setl softtabstop=8 shiftwidth=8 noet
-au FileType lisp :ToggleRaibowParenthesis
 au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
 
 au FileType javascript setl softtabstop=4 shiftwidth=4 et
-au FileType javascript :ToggleRaibowParenthesis
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
 au BufRead,BufNewFile *.json setl filetype=javascript
 
