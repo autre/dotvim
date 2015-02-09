@@ -28,6 +28,8 @@ Bundle 'vim-scripts/slimv.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
+
+Bundle 'felipec/notmuch-vim'
 "}}}
 
 filetype on " bring it back on
@@ -211,6 +213,15 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 "au Syntax * RainbowParenthesesLoadSquare
 "au Syntax * RainbowParenthesesLoadBraces
+
+"notmuch
+let g:notmuch_folders = [
+    \ [ 'new', 'tag:inbox and tag:unread' ],
+    \ [ 'inbox', 'tag:inbox' ],
+    \ [ 'unread', 'tag:unread' ],
+    \ [ 'xerror', 'tag:xerror' ],
+    \ [ 'trash', 'tag:trash' ]
+    \ ]
 " }}}
 
 " Language specific {{{
