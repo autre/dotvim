@@ -20,16 +20,21 @@ call vundle#rc()
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/matchit.zip'
-Bundle 'scrooloose/syntastic'
 Bundle 'craigemery/vim-autotag'
 Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/slimv.vim'
-
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 
 Bundle 'felipec/notmuch-vim'
+
+Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/slimv.vim'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'elzr/vim-json'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/javascript-libraries-syntax.vim'
 "}}}
 
 filetype on " bring it back on
@@ -92,13 +97,15 @@ au FocusLost * :wa " save file when losing focus
 " }}}
 
 " Gui fonts & colors {{{
+
+set t_ut= " improve screen clearing by using the background color
+
 if has('gui_running')
   set background=light
   colorscheme solarized
 
   " Remove GUI menu and toolbar
-  set guioptions-=m
-  set guioptions-=T
+  set guioptions-=mT
 
   if s:os == "Darwin"
     set guifont=Inconsolata:h16
@@ -107,7 +114,7 @@ if has('gui_running')
   endif
 else
   set t_Co=256
-  set background=light
+  set background=dark
   colorscheme solarized
 endif
 " }}}
@@ -222,6 +229,9 @@ let g:notmuch_folders = [
     \ ]
 " }}}
 
+" javascript-libraries-syntax
+let g:used_javascript_libs = 'requirejs,react'
+
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
 au BufWritePost *.java call system('ctags -f .tags -R src --languages=java -a '.expand('%'))
@@ -232,7 +242,6 @@ au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentat
 
 au FileType javascript setl softtabstop=4 shiftwidth=4 et
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
-au BufRead,BufNewFile *.json setl filetype=javascript
 
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
