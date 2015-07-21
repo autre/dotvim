@@ -33,8 +33,7 @@ Bundle 'vim-scripts/slimv.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'elzr/vim-json'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'marijnh/tern_for_vim'
 "}}}
 
 filetype on " bring it back on
@@ -114,7 +113,7 @@ if has('gui_running')
   endif
 else
   set t_Co=256
-  set background=dark
+  set background=light
   colorscheme solarized
 endif
 " }}}
@@ -229,11 +228,10 @@ let g:notmuch_folders = [
     \ ]
 " }}}
 
-" javascript-libraries-syntax
-let g:used_javascript_libs = 'requirejs,react'
-
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
+au FileType java nnoremap <leader>j :JUnit<cr>
+au FileType java nnoremap <leader>j* :JUnit<cr>
 au BufWritePost *.java call system('ctags -f .tags -R src --languages=java -a '.expand('%'))
 
 au FileType c setl softtabstop=8 shiftwidth=8 noet
