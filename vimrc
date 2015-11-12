@@ -101,7 +101,6 @@ set t_ut= " improve screen clearing by using the background color
 
 if has('gui_running')
   set background=light
-  colorscheme solarized
 
   " Remove GUI menu and toolbar
   set guioptions-=mT
@@ -114,7 +113,6 @@ if has('gui_running')
 else
   set t_Co=256
   set background=light
-  colorscheme solarized
 endif
 " }}}
 
