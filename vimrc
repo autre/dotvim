@@ -97,11 +97,9 @@ au FocusLost * :wa " save file when losing focus
 
 " Gui fonts & colors {{{
 
-set t_ut= " improve screen clearing by using the background color
+"set t_ut= " improve screen clearing by using the background color
 
 if has('gui_running')
-  set background=light
-
   " Remove GUI menu and toolbar
   set guioptions-=mT
 
@@ -112,8 +110,10 @@ if has('gui_running')
   endif
 else
   set t_Co=256
-  set background=light
 endif
+
+set background=light
+colorscheme solarized
 " }}}
 
 " Basic mappings {{{
@@ -192,10 +192,10 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " solarized config
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+"let g:solarized_visibility="high"
 
 let g:tex_flavor='latex'
 
