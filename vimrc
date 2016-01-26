@@ -34,6 +34,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'elzr/vim-json'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'dleonard0/pony-vim-syntax'
 "}}}
 
 filetype on " bring it back on
@@ -112,7 +113,8 @@ else
   set t_Co=256
 endif
 
-set background=light
+syntax on
+set background=dark
 colorscheme solarized
 " }}}
 
@@ -179,7 +181,6 @@ filetype off " necessary on some Linux distros for pathogen to properly load bun
 filetype on
 filetype plugin on
 filetype indent on
-syntax on
 " }}}
 
 " Plugin stuff {{{
