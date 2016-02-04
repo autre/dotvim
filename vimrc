@@ -98,7 +98,8 @@ au FocusLost * :wa " save file when losing focus
 
 " Gui fonts & colors {{{
 
-"set t_ut= " improve screen clearing by using the background color
+set background=dark
+set t_ut= " improve screen clearing by using the background color
 
 if has('gui_running')
   " Remove GUI menu and toolbar
@@ -107,15 +108,15 @@ if has('gui_running')
   if s:os == "Darwin"
     set guifont=Inconsolata:h16
   else
-    set guifont=Inconsolata\ 11
+    set guifont=Inconsolata\ 15
   endif
+
+  colorscheme solarized
 else
   set t_Co=256
 endif
 
 syntax on
-set background=dark
-colorscheme solarized
 " }}}
 
 " Basic mappings {{{
