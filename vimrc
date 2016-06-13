@@ -25,16 +25,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
-
-Bundle 'felipec/notmuch-vim'
-
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/slimv.vim'
-Bundle 'elixir-lang/vim-elixir'
 Bundle 'elzr/vim-json'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'marijnh/tern_for_vim'
-Bundle 'dleonard0/pony-vim-syntax'
 "}}}
 
 filetype on " bring it back on
