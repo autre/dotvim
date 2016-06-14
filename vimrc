@@ -30,6 +30,7 @@ Bundle 'vim-scripts/slimv.vim'
 Bundle 'elzr/vim-json'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'lambdatoast/elm.vim'
 "}}}
 
 filetype on " bring it back on
