@@ -29,13 +29,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/slimv.vim'
 Bundle 'elzr/vim-json'
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'marijnh/tern_for_vim'
+Bundle 'ternjs/tern_for_vim'
 Bundle 'lambdatoast/elm.vim'
 "}}}
 
 filetype on " bring it back on
-
-let s:os = substitute(system('uname'), '\n', '', '')
 
 " General settings {{{
 set encoding=utf-8
@@ -100,13 +98,7 @@ set t_ut= " improve screen clearing by using the background color
 if has('gui_running')
   " Remove GUI menu and toolbar
   set guioptions-=mT
-
-  if s:os == "Darwin"
-    set guifont=Inconsolata:h16
-  else
-    set guifont=Inconsolata\ 15
-  endif
-
+  set guifont=Inconsolata\ 15
   colorscheme solarized
 else
   set t_Co=256
@@ -168,9 +160,6 @@ map <Esc>[B <Down>
 
 " highlight last inserted text
 nnoremap gV `[v`]
-
-" decode attachment (notmuch)
-vmap <leader>d <esc>:'<,'>:w !base64 -d
 "}}}
 
 " Highlighting, syntax, indentation {{{
@@ -198,12 +187,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 let g:tex_flavor='latex'
 
 " slimv/lisp
-if s:os == "Darwin"
-    let g:slimv_python='/usr/local/bin/python'
-    let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/bundle/slimv.vim/slime/start-swank.lisp\""'
-else
-    let g:slimv_python='/usr/bin/python2'
-endif
+let g:slimv_python='/usr/bin/python2'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -214,24 +198,14 @@ let g:syntastic_javascript_checkers = ['jshint']
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
-"notmuch
-let g:notmuch_folders = [
-    \ [ 'new', 'tag:inbox and tag:unread' ],
-    \ [ 'inbox', 'tag:inbox' ],
-    \ [ 'unread', 'tag:unread' ],
-    \ [ 'xerror', 'tag:xerror' ],
-    \ [ 'trash', 'tag:trash' ]
-    \ ]
-" }}}
-
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
 au FileType java nnoremap <leader>j :JUnit<cr>
 au FileType java nnoremap <leader>j* :JUnit<cr>
 au BufWritePost *.java call system('ctags -f .tags -R src --languages=java -a '.expand('%'))
 
-au FileType c setl softtabstop=8 shiftwidth=8 noet
-au FileType sh setl softtabstop=8 shiftwidth=8 noet
+au FileType c setl softtabstop=8 shiftwidth=8 et
+au FileType sh setl softtabstop=4 shiftwidth=4 et
 au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
 
 au FileType javascript setl softtabstop=4 shiftwidth=4 et
@@ -240,9 +214,6 @@ au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
-
-au FileType xml setl softtabstop=2 shiftwidth=2
-
 " }}}
 
 " Various helpers {{{
