@@ -204,9 +204,10 @@ au FileType java nnoremap <leader>j :JUnit<cr>
 au FileType java nnoremap <leader>j* :JUnit<cr>
 au BufWritePost *.java call system('ctags -f .tags -R src --languages=java -a '.expand('%'))
 
+au FileType make setl softtabstop=8 shiftwidth=8 noet
 au FileType c setl softtabstop=8 shiftwidth=8 et
 au FileType sh setl softtabstop=4 shiftwidth=4 et
-au FileType lisp,scheme setlocal equalprg=lispindent.lisp " proper lisp indentation
+au FileType lisp,scheme setl equalprg=lispindent.lisp " proper lisp indentation
 
 au FileType javascript setl softtabstop=4 shiftwidth=4 et
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
@@ -214,6 +215,7 @@ au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
 au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html set omnifunc=htmlcomplete#CompleteTags
 au FileType css set omnifunc=csscomplete#CompleteCSS
+au FileType xml setl softtabstop=2 shiftwidth=2
 " }}}
 
 " Various helpers {{{
