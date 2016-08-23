@@ -192,7 +192,7 @@ let g:slimv_python='/usr/bin/python2'
 " syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_messages = { 'level': 'all' }
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " rainbow_parentheses
 au VimEnter * RainbowParenthesesToggle
