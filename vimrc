@@ -13,7 +13,7 @@
 set nocompatible
 filetype off " required by vundler
 
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/vundle
 call vundle#rc()
 
 " bundles {{{
