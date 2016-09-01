@@ -1,4 +1,4 @@
 
-.git
-vundle.git
-bundle
+.git/
+vundle/
+bundle/
