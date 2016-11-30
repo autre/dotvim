@@ -31,6 +31,7 @@ Bundle 'elzr/vim-json'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'ternjs/tern_for_vim'
 Bundle 'lambdatoast/elm.vim'
+Bundle 'elixir-lang/vim-elixir'
 "}}}
 
 filetype on " bring it back on
