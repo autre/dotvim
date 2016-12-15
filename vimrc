@@ -21,7 +21,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'craigemery/vim-autotag'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
@@ -177,7 +177,7 @@ nmap <silent> ,r :CtrlP<cr>
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+"let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " solarized config
 "let g:solarized_termtrans=1
@@ -198,6 +198,12 @@ let g:syntastic_javascript_checkers = ['eslint']
 " rainbow_parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
