@@ -32,6 +32,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'ternjs/tern_for_vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'fatih/vim-go'
 "}}}
 
 filetype on " bring it back on
@@ -205,6 +206,13 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
 au FileType java nnoremap <leader>j :JUnit<cr>
@@ -220,9 +228,11 @@ au FileType javascript setl softtabstop=4 shiftwidth=4 et
 au FileType javascript :setl omnifunc=javascriptcomplete#CompleteJS
 
 au FileType html setl softtabstop=2 shiftwidth=2
-au FileType html set omnifunc=htmlcomplete#CompleteTags
-au FileType css set omnifunc=csscomplete#CompleteCSS
+au FileType html setl omnifunc=htmlcomplete#CompleteTags
+au FileType css setl omnifunc=csscomplete#CompleteCSS
 au FileType xml setl softtabstop=2 shiftwidth=2
+
+au FileType go setl nolist listchars=trail:·
 " }}}
 
 " Various helpers {{{
