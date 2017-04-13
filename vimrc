@@ -32,6 +32,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'ternjs/tern_for_vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'derekwyatt/vim-scala.git'
 Bundle 'fatih/vim-go'
 "}}}
 
