@@ -17,21 +17,19 @@ set rtp+=~/.vim/vundle
 call vundle#rc()
 
 " bundles {{{
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'bling/vim-airline'
+Bundle 'vim-scripts/matchit.zip'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'craigemery/vim-autotag'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/slimv.vim'
 Bundle 'elzr/vim-json'
 Bundle 'ternjs/tern_for_vim'
+Bundle 'fatih/vim-go'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'derekwyatt/vim-scala.git'
-Bundle 'fatih/vim-go'
 "}}}
 
 filetype on " bring it back on
@@ -179,6 +177,12 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
 " solarized config
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
@@ -186,9 +190,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 "let g:solarized_visibility="high"
 
 let g:tex_flavor='latex'
-
-" slimv/lisp
-let g:slimv_python='/usr/bin/python2'
 
 " syntastic
 let g:syntastic_enable_signs=1
@@ -198,12 +199,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 " rainbow_parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
