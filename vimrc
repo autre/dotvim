@@ -31,6 +31,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'ronny/birds-of-paradise.vim'
 "}}}
 
 call vundle#end()
@@ -91,21 +92,18 @@ au CursorHold * checktime
 au FocusLost * :wa " save file when losing focus
 " }}}
 
-" Gui fonts & colors {{{
+" Fonts & colors {{{
 
+syntax enable
 set background=dark
+colorscheme birds-of-paradise
 set t_ut= " improve screen clearing by using the background color
 
 if has('gui_running')
   " Remove GUI menu and toolbar
   set guioptions-=mT
-  set guifont=Inconsolata\ 15
-  colorscheme solarized
-else
-  set t_Co=256
+  set guifont=mononoki\ 13
 endif
-
-syntax on
 " }}}
 
 " Basic mappings {{{
@@ -174,14 +172,6 @@ filetype indent on
 
 " fzf
 nmap <silent>; :Files<cr>
-
-" solarized config
-"let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-
-let g:tex_flavor='latex'
 
 " syntastic
 let g:syntastic_enable_signs=1
