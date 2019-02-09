@@ -25,6 +25,8 @@ Plugin 'derekwyatt/vim-scala.git'
 Plugin 'fatih/vim-go'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/matchit.zip'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -170,18 +172,8 @@ filetype indent on
 
 " Plugin stuff {{{
 
-" ctrl-p
-nmap <silent> ,r :CtrlP<cr>
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+" fzf
+nmap <silent>; :Files<cr>
 
 " solarized config
 "let g:solarized_termtrans=1
