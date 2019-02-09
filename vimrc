@@ -18,19 +18,17 @@ call vundle#begin()
 
 " plugins {{{
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'bling/vim-airline'
-Plugin 'vim-scripts/matchit.zip'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'elzr/vim-json'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'fatih/vim-go'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'derekwyatt/vim-scala.git'
+Plugin 'fatih/vim-go'
+Plugin 'elzr/vim-json'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'altercation/vim-colors-solarized'
 "}}}
 
 call vundle#end()
