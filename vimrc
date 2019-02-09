@@ -13,25 +13,27 @@
 set nocompatible
 filetype off " required by vundler
 
-set rtp+=~/.vim/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" bundles {{{
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'bling/vim-airline'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'elzr/vim-json'
-Bundle 'ternjs/tern_for_vim'
-Bundle 'fatih/vim-go'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'derekwyatt/vim-scala.git'
+" plugins {{{
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'bling/vim-airline'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'elzr/vim-json'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'fatih/vim-go'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'derekwyatt/vim-scala.git'
 "}}}
 
+call vundle#end()
 filetype on " bring it back on
 
 " General settings {{{
