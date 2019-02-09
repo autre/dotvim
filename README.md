@@ -2,9 +2,7 @@
 Installation:
 ===
 
-    git clone git://github.com/autre/dotvim.git ~/.vim # clone this repo
-    cd ~/.vim # cd to repo
-    git clone http://github.com/gmarik/vundle.git # get vundle
-    vim vimrc # install the bundles
-        :BundleInstall
-    ln -s ~/.vim/vimrc ~/.vimrc # make vimrc known
+git clone git://github.com/autre/dotvim.git ~/.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ln -s .vim/vimrc .vimrc
+vim +PluginInstall +qall
