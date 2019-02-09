@@ -27,7 +27,6 @@ Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -173,15 +172,12 @@ filetype indent on
 " fzf
 nmap <silent>; :Files<cr>
 
-" syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_messages = { 'level': 'all' }
-let g:syntastic_javascript_checkers = ['eslint']
 
 " rainbow_parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
+" vim-go
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
