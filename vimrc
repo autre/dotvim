@@ -31,6 +31,8 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ronny/birds-of-paradise.vim'
+Plugin 'benmills/vimux'
+Plugin 'vim-test/vim-test'
 "}}}
 
 call vundle#end()
@@ -88,7 +90,7 @@ set diffopt+=vertical
 set autoread
 au CursorHold * checktime
 
-au FocusLost * :wa " save file when losing focus
+"au FocusLost * :wa " save file when losing focus
 " }}}
 
 " Fonts & colors {{{
@@ -184,6 +186,18 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:test#strategy = "vimux"
+let test#python#runner = 'pytest'
+let test#ruby#runner = 'rake'
+let test#ruby#bundle_exec = 0
+" let test#ruby#rake#file_pattern = 'test-\.rb' " the default is '(((^|/)test_.+)|_test)\.rb'
+
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> <F9> :TestFile<CR>
+nmap <silent> <F10> :TestSuite<CR>
+nmap <silent> <F8> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 " Language specific {{{
 au FileType java setl softtabstop=4 shiftwidth=4 et
