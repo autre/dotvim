@@ -20,18 +20,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'derekwyatt/vim-scala.git'
-Plugin 'fatih/vim-go'
-Plugin 'elzr/vim-json'
-Plugin 'vim-scripts/matchit.zip'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'bling/vim-airline'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'luochen1990/rainbow'
 Plugin 'ronny/birds-of-paradise.vim'
-Plugin 'benmills/vimux'
 Plugin 'vim-test/vim-test'
 "}}}
 
@@ -67,9 +60,12 @@ set showmatch " bouncy parens, must have
 set lazyredraw " redraw only when we need to
 set splitright
 set list listchars=tab:▸\ ,trail:·
-set ttymouse=xterm2 " magic stuff to enable the mouse
+
+" Enable native mouse support
 set mouse=a
+set ttymouse=sgr
 set mousemodel=popup
+
 set scrolloff=2 " minimum lines between cursor and window edge
 set laststatus=2
 set statusline=\ %m%f%r%h\ %y\ \ %=%(%l,\ %c%)
@@ -82,22 +78,25 @@ set expandtab " turn tabs into spaces
 set cindent
 set autoindent
 set clipboard+=unnamed " Put contents of unnamed register in system clipboard
-set tags=.tags
 set diffopt+=vertical
-"set cryptmethod=blowfish2
+
+" Enable 24-bit colors
+" set termguicolors
+let &t_8f = "\<Esc>[38:2::%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2::%lu:%lu:%lum"
 
 " check file change every 4 seconds ('CursorHold') and reload the buffer upon detecting change
 set autoread
 au CursorHold * checktime
+packadd! matchit
 
 "au FocusLost * :wa " save file when losing focus
 " }}}
 
 " Fonts & colors {{{
-
 syntax enable
-set background=dark
 colorscheme birds-of-paradise
+set background=light
 set t_ut= " improve screen clearing by using the background color
 
 if has('gui_running')
@@ -174,23 +173,7 @@ filetype indent on
 " fzf
 nmap <silent>; :Files<cr>
 
-
-" rainbow_parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-
-" vim-go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:test#strategy = "vimux"
-let test#python#runner = 'pytest'
-let test#ruby#runner = 'rake'
-let test#ruby#bundle_exec = 0
-" let test#ruby#rake#file_pattern = 'test-\.rb' " the default is '(((^|/)test_.+)|_test)\.rb'
+let g:rainbow_active = 1
 
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> t<C-n> :TestNearest<CR>
@@ -217,8 +200,6 @@ au FileType html setl softtabstop=2 shiftwidth=2
 au FileType html setl omnifunc=htmlcomplete#CompleteTags
 au FileType css setl omnifunc=csscomplete#CompleteCSS
 au FileType xml setl softtabstop=2 shiftwidth=2
-
-au FileType go setl nolist listchars=trail:·
 " }}}
 
 " Various helpers {{{
